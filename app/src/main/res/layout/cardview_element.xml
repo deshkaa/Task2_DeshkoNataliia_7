@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/cardview_margin"
+        card_view:cardBackgroundColor="@color/cardview_background_color"
+        card_view:cardCornerRadius="@dimen/cardview_corner_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/cardview_element_height">
+
+            <!--TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_background_color"/-->
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/cardview_image_margin_left"
+                android:layout_marginTop="@dimen/cardview_image_margin_top"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/likes_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cardview_image_like_margin_bottom"
+                android:layout_marginLeft="@dimen/cardview_image_like_margin_left"
+                android:layout_marginTop="@dimen/cardview_image_like_margin_top"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_like" />
+
+            <TextView
+                android:id="@+id/likes_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cardview_likes_margin_bottom"
+                android:layout_marginLeft="@dimen/cardview_likes_margin_left"
+                android:layout_marginTop="@dimen/cardview_likes_margin_top"
+                android:layout_toRightOf="@id/likes_imageview"
+                android:text="0"
+                android:textAppearance="@style/CardviewTextAppearance" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="@dimen/cardview_view_width"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/cardview_view_margin_left"
+                android:background="@color/cardview_view_color" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="231dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cardview_title_margin_bottom"
+                android:layout_marginLeft="@dimen/cardview_title_margin"
+                android:layout_marginRight="@dimen/cardview_title_margin"
+                android:layout_marginTop="@dimen/cardview_title_margin"
+                android:layout_toRightOf="@id/view"
+                android:maxLines="2"
+                android:text="Заголовок"
+                android:textAppearance="@style/CardviewTitleAppearance" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/cardview_date_margin_bottom"
+                android:layout_marginLeft="@dimen/cardview_date_margin_left"
+                android:layout_marginTop="@dimen/cardview_date_margin_top"
+                android:layout_toRightOf="@id/view"
+                android:maxLines="1"
+                android:text="дата"
+                android:textAppearance="@style/CardviewDateTextAppearance" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/date"
+                android:layout_alignLeft="@id/title"
+                android:maxLines="1"
+                android:text="адрес"
+                android:textAppearance="@style/CardviewTextAppearance" />
+
+            <TextView
+                android:id="@+id/days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/cardview_days_margin_bottom"
+                android:layout_marginRight="@dimen/cardview_days_margin_right"
+                android:layout_marginTop="@dimen/cardview_days_margin_top"
+                android:maxLines="1"
+                android:text="-7 дней"
+                android:textAppearance="@style/CardviewDateTextAppearance" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

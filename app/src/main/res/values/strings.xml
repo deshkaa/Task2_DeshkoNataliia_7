@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Task2_DeshkoNataliia</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nav_drawer_header_title">e-contact</string>
+    <string name="toolbar_title">Всі звернення</string>
+    <string name="action_filter">Filter</string>
+    <string name="nav_drawer_login_item">Увійти в акаунт</string>
+    <string name="nav_drawer_om_map_item">Звернення на мапі</string>
+    <string name="nav_drawer_all_applications_item">Всі звернення</string>
+
+    <string-array name="tab_titles_array">
+        <item>В РОБОТІ</item>
+        <item>ВИКОНАНО</item>
+        <item>ОЧІКУЄТЬСЯ</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/applications_menu_group"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_all_applications"
+            android:icon="@drawable/ic_menu_applications_24dp"
+            android:title="@string/nav_drawer_all_applications_item" />
+        <item
+            android:id="@+id/nav_on_map"
+            android:icon="@drawable/ic_menu_map_24dp"
+            android:title="@string/nav_drawer_om_map_item" />
+    </group>
+
+    <group
+        android:id="@+id/login_menu_group"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_login"
+            android:title="@string/nav_drawer_login_item" />
+    </group>
+
+</menu>

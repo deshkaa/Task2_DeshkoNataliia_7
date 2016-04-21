@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#557cac</color>
+    <color name="colorPrimaryDark">#446389</color>
+    <color name="colorAccent">#FF9C26</color>
+
+    <!--color name="actionbar_color">#557cac</color-->
+    <!--color name="statusbar_color">#446389</color-->
+    <color name="nav_drawer_menu_item_color">#000000</color>
+    <color name="nav_drawer_header_text_color">#CBD7E5</color>
+    <color name="tab_indicator_color">#FFFFFF</color>
+    <color name="tab_text_color">#FFFFFF</color>
+
+    <color name="gradient_color_0">#557cac</color>
+    <color name="gradient_color_1">#6082b4</color>
+    <color name="gradient_color_2">#45b3c3</color>
+    <color name="gradient_color_3">#6786b9</color>
+    <color name="gradient_color_4">#4a76a4</color>
+
+    <color name="cardview_background_color">#ffffff</color>
+    <color name="cardview_all_text_color">#878787</color>
+    <color name="cardview_date_color">#de000000</color>
+    <color name="cardview_title_color">#000000</color>
+    <color name="cardview_view_color">#d7d5d5</color>
+</resources>
