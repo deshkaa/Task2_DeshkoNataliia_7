@@ -2,6 +2,8 @@ package com.example.nataliia.task2_deshkonataliia;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nataliia.task1.SubActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -71,12 +74,6 @@ public class ListViewAdapter extends BaseAdapter {
         holder.mAddress.setText(mDataset.get(position).dataAddress);
         holder.mDate.setText(mDataset.get(position).dataDate);
         holder.mDaysNumber.setText(mDataset.get(position).dataDaysNumber);
-        rowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "You Clicked " + position, Toast.LENGTH_LONG).show();
-            }
-        });
         return rowView;
     }
 

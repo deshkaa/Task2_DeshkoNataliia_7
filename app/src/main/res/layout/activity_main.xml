@@ -19,6 +19,16 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:itemTextAppearance="@style/NavigationDrawerMenuTextAppearance"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer" >
+
+        <TextView
+            android:id="@+id/drawer_textview"
+            style="@style/drawerTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="@dimen/recycler_custom_row_inner_padding"
+            android:textColor="@color/drawerBottomTextColor"/>
+        </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

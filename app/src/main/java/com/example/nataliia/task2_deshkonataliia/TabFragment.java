@@ -10,9 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class TabFragment extends Fragment {
 
@@ -48,57 +45,23 @@ public class TabFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            ApplicationSubclass applicationSubclass =
-                    (ApplicationSubclass) getContext().getApplicationContext();
 
-            InProgressFragment tab_in_progress = new InProgressFragment();
-            Bundle args = new Bundle();
-            //args.putSerializable("recyclerKey", applicationSubclass.getmAdapter_in_progress());
-            args.putSerializable("recyclerKey", applicationSubclass.getmDataSet_in_progress());
-            tab_in_progress.setArguments(args);
-
-            InProgressFragment tab_done = new InProgressFragment();
-            Bundle args2 = new Bundle();
-            //args2.putSerializable("recyclerKey", applicationSubclass.getmAdapter_done());
-            args.putSerializable("recyclerKey", applicationSubclass.getmDataSet_done());
-            tab_done.setArguments(args2);
-
-            WaitingFragment tab_waiting = new WaitingFragment();
-
-            /////////
-
-            Bundle bundle = new Bundle();
-            InProgressFragment recyclerTab = new InProgressFragment();
+            Bundle bundle_in_progress = new Bundle();
+            Bundle bundle_done = new Bundle();
+            InProgressFragment inProgressTab = new InProgressFragment();
+            InProgressFragment doneTab = new InProgressFragment();
 
             switch (position) {
                 case 0:
-                    return tab_in_progress;
-                    //return InProgressFragment.newInstance(new RecyclerViewAdapter(DataSet.setDataInProgress()));
-                            //applicationSubclass.getmAdapter_in_progress());
-                    /*bundle.putSerializable(
-                            "recyclerKey", applicationSubclass.getmAdapter_in_progress());
-                    //recyclerTab = InProgressFragment.
-                      //      newInstance(applicationSubclass.getmAdapter_done());
-                    recyclerTab.setArguments(bundle);
-                    return recyclerTab;*/
+                    bundle_in_progress.putSerializable("tab", "in progress");
+                    inProgressTab.setArguments(bundle_in_progress);
+                    return inProgressTab;
                 case 1:
-                    return tab_done;
-                    /*.putSerializable(
-                            "recyclerKey", applicationSubclass.getmAdapter_done());
-                    //recyclerTab = InProgressFragment.
-                    //      newInstance(applicationSubclass.getmAdapter_done());
-                    recyclerTab.setArguments(bundle);
-                    return recyclerTab;*/
-                    //return new WaitingFragment();//InProgressFragment.newInstance(new RecyclerViewAdapter(DataSet.setDataDone()));
-                            //applicationSubclass.getmAdapter_done());
-                    /*bundle.putSerializable(
-                            "recyclerKey", applicationSubclass.getmAdapter_done());
-                    recyclerTab = InProgressFragment.
-                            newInstance(applicationSubclass.getmAdapter_done());
-                    recyclerTab.setArguments(bundle);
-                    return recyclerTab;*/
+                    bundle_done.putSerializable("tab", "done");
+                    doneTab.setArguments(bundle_done);
+                    return doneTab;
                 case 2:
-                    return tab_waiting;//new WaitingFragment();
+                    return new WaitingFragment();
             }
             return null;
         }
@@ -107,7 +70,6 @@ public class TabFragment extends Fragment {
         public int getCount() {
             return tab_items_int;
         }
-
 
         @Override
         public CharSequence getPageTitle(int position) {

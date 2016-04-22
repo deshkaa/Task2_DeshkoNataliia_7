@@ -1,26 +1,26 @@
 package com.example.nataliia.task2_deshkonataliia;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.nataliia.task1.SubActivity;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter
-        extends android.support.v7.widget.RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
-        implements Serializable {
-
+        extends android.support.v7.widget.RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+    private Context mContext;
     private ArrayList<DataSet> mDataset;
-   // private View.OnClickListener onClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView mImage;
@@ -43,15 +43,14 @@ public class RecyclerViewAdapter
         }
     }
 
-    public RecyclerViewAdapter(ArrayList<DataSet> dataset) {
+    public RecyclerViewAdapter(ArrayList<DataSet> dataset, Context context) {
         mDataset = dataset;
+        mContext = context;
     }
 
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-
-        View view = LayoutInflater.from(parent.getContext()).
+        final View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.cardview_element, parent, false);
         return new ViewHolder(view);
     }
@@ -72,9 +71,9 @@ public class RecyclerViewAdapter
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("data", mDataset.get(position).getArrayList());
-                //Intent intent = new Intent(v.getContext(), SubActivity.class);
-                //intent.putExtras(bundle);
-
+                Intent intent = new Intent(v.getContext(), SubActivity.class);
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
             }
         });
     }

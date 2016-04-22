@@ -1,5 +1,6 @@
 package com.example.nataliia.task2_deshkonataliia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,40 +9,32 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.shamanland.fab.FloatingActionButton;
 import com.shamanland.fab.ShowHideOnScroll;
 
-import java.util.ArrayList;
-
 public class InProgressFragment extends Fragment {
 
     private RecyclerViewAdapter mAdapter;
-    private static final String ADAPTER_KEY = "recyclerKey";
-
-    public static InProgressFragment newInstance(ArrayList<DataSet> dataSet){
-    //RecyclerViewAdapter adapter) {
-        InProgressFragment fragment = new InProgressFragment();
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(ADAPTER_KEY, dataSet);
-        fragment.setArguments(bundle);
-        return fragment;
-
-        //return new InProgressFragment();
-    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //if (this.getArguments() != null)
-            //mAdapter = (RecyclerViewAdapter) this.getArguments().getSerializable(ADAPTER_KEY);
-        //else
-           // Toast.makeText(getContext(), "Null", Toast.LENGTH_LONG).show();
+        ViewGroup rootView = (ViewGroup) inflater.inflate(
+                R.layout.in_progress_tab_layout, container, false);
+        Bundle bundle;
+        if (this.getArguments() != null) {
+            bundle = this.getArguments();
+            String key = (String) bundle.get("tab");
+            if (key.equals("in progress")) {
+                mAdapter = new RecyclerViewAdapter(DataSet.setDataInProgress(), this.getContext());
+            }
+            if (key.equals("done")) {
+                mAdapter = new RecyclerViewAdapter(DataSet.setDataDone(), this.getContext());
+            }
+        }
 
-        mAdapter = new RecyclerViewAdapter((ArrayList<DataSet>)this.getArguments().getSerializable(ADAPTER_KEY));
-
-        RecyclerView recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
 
         if (recyclerView != null) {
@@ -52,7 +45,7 @@ public class InProgressFragment extends Fragment {
             recyclerView.setOnTouchListener(new ShowHideOnScroll(fab));
         }
 
-        return inflater.inflate(R.layout.in_progress_tab_layout, null);
+        return rootView;
     }
 
     @Override

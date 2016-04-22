@@ -1,5 +1,6 @@
-package com.example.nataliia.pr_1;
+package com.example.nataliia.task1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,11 +12,19 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.nataliia.task2_deshkonataliia.DataSet;
+import com.example.nataliia.task2_deshkonataliia.R;
+
+public class SubActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_sub);
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+
+        DataSet dataSet=
+                (DataSet)bundle.getSerializable("onClick");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast viewToast = Toast.makeText(MainActivity.this,
+                Toast viewToast = Toast.makeText(SubActivity.this,
                         v.getClass().getSimpleName().toString(),
                         Toast.LENGTH_SHORT);
                 viewToast.show();
@@ -48,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         int[] dataset = new int[] {R.drawable.img_1,R.drawable.img_2,R.drawable.img_3};
 
-        RecyclerView.Adapter adapter = new RecyclerViewAdapter(dataset, onClickListener);
+        RecyclerView.Adapter adapter = new RecyclerViewAdapterSub(dataset, onClickListener);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
