@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nataliia.task2_deshkonataliia.DataSet;
@@ -23,22 +24,26 @@ public class SubActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
 
-        DataSet dataSet=
-                (DataSet)bundle.getSerializable("onClick");
+        DataSet dataSet =
+                (DataSet) bundle.getSerializable("data");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            if (dataSet != null) toolbar.setTitle(dataSet.getmTitleNumber());
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -52,30 +57,57 @@ public class SubActivity extends AppCompatActivity {
 
         setAllControlsOnClick(R.id.linear_sub_layout, onClickListener);
 
+        int[] dataset = new int[]{R.drawable.img_1, R.drawable.img_2, R.drawable.img_3};
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
+        if (recyclerView != null) {
+            recyclerView.setHasFixedSize(true);
 
-        int[] dataset = new int[] {R.drawable.img_1,R.drawable.img_2,R.drawable.img_3};
+            RecyclerView.Adapter adapter = new RecyclerViewAdapterSub(dataset, onClickListener);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
-        RecyclerView.Adapter adapter = new RecyclerViewAdapterSub(dataset, onClickListener);
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setAdapter(adapter);
+        }
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        if (dataSet != null) {
+            TextView title = (TextView) findViewById(R.id.title);
+            if (title != null) title.setText(dataSet.getmDataTitle());
 
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapter);
+            TextView mainText = (TextView) findViewById(R.id.text);
+            if (mainText != null) mainText.setText(dataSet.getmMainText());
+
+            TextView data1 = (TextView) findViewById(R.id.text_view_1_2);
+            if (data1 != null) data1.setText(dataSet.getmData1());
+
+            TextView data2 = (TextView) findViewById(R.id.text_view_2_2);
+            if (data2 != null) data2.setText(dataSet.getmData2());
+
+            TextView data3 = (TextView) findViewById(R.id.text_view_3_2);
+            if (data3 != null) data3.setText(dataSet.getmDataDate());
+
+            TextView state = (TextView) findViewById(R.id.state);
+            if (state != null) state.setText(dataSet.getmStatus());
+
+            TextView responsible = (TextView) findViewById(R.id.text_view_4_2);
+            if (responsible != null) responsible.setText(dataSet.getmResponsible());
+        }
     }
 
     private void setAllControlsOnClick(int id, View.OnClickListener onClickListener) {
         ViewGroup tableViewGroup = (ViewGroup) findViewById(id);
-        int mTableChildCount = tableViewGroup.getChildCount();
-        for (int i = 0; i < mTableChildCount; i++) {
-            View currentView = tableViewGroup.getChildAt(i);
-            Class viewClass = currentView.getClass();
-            if (!viewClass.equals(TableRow.class) && !viewClass.equals(TableLayout.class)) {
-                currentView.setOnClickListener(onClickListener);
-            } else {
-                setAllControlsOnClick(currentView.getId(), onClickListener);
+        int mTableChildCount;
+        if (tableViewGroup != null) {
+            mTableChildCount = tableViewGroup.getChildCount();
+            for (int i = 0; i < mTableChildCount; i++) {
+                View currentView = tableViewGroup.getChildAt(i);
+                Class viewClass = currentView.getClass();
+                if (!viewClass.equals(TableRow.class) && !viewClass.equals(TableLayout.class)) {
+                    currentView.setOnClickListener(onClickListener);
+                } else {
+                    setAllControlsOnClick(currentView.getId(), onClickListener);
+                }
             }
         }
     }

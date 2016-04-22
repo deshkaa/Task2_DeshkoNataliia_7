@@ -35,7 +35,7 @@ public class WaitingFragment extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("data", DataSet.setDataWaiting().get(position).getArrayList());
+                    bundle.putSerializable("data", DataSet.setDataWaiting().get(position));
                     Intent intent = new Intent(view.getContext(), SubActivity.class);
                     intent.putExtras(bundle);
                     getActivity().startActivityForResult(intent, 0);

@@ -2,17 +2,13 @@ package com.example.nataliia.task2_deshkonataliia;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.nataliia.task1.SubActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -67,13 +63,13 @@ public class ListViewAdapter extends BaseAdapter {
         holder.mDaysNumber = (TextView) rowView.findViewById(R.id.days);
 
         Picasso.with(holder.mImage.getContext()).
-                load(mDataset.get(position).dataImageResourceId).
+                load(mDataset.get(position).getmDataImageResourceId()).
                 into(holder.mImage);
-        holder.mTitle.setText(mDataset.get(position).dataTitle);
-        holder.mLikesNumber.setText(String.valueOf(mDataset.get(position).dataLikesNumber));
-        holder.mAddress.setText(mDataset.get(position).dataAddress);
-        holder.mDate.setText(mDataset.get(position).dataDate);
-        holder.mDaysNumber.setText(mDataset.get(position).dataDaysNumber);
+        holder.mTitle.setText(mDataset.get(position).getmDataTitle());
+        holder.mLikesNumber.setText(String.valueOf(mDataset.get(position).getmDataLikesNumber()));
+        holder.mAddress.setText(mDataset.get(position).getmDataAddress());
+        holder.mDate.setText(mDataset.get(position).getmDataDate());
+        holder.mDaysNumber.setText(mDataset.get(position).getmDataDaysNumber());
         return rowView;
     }
 

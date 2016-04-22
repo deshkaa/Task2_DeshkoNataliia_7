@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter
-        extends android.support.v7.widget.RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+        extends android.support.v7.widget.RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<DataSet> mDataset;
 
@@ -59,18 +58,18 @@ public class RecyclerViewAdapter
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
         Picasso.with(holder.mImage.getContext()).
-                load(mDataset.get(position).dataImageResourceId).
+                load(mDataset.get(position).getmDataImageResourceId()).
                 into(holder.mImage);
-        holder.mTitle.setText(mDataset.get(position).dataTitle);
-        holder.mLikesNumber.setText(String.valueOf(mDataset.get(position).dataLikesNumber));
-        holder.mAddress.setText(mDataset.get(position).dataAddress);
-        holder.mDate.setText(mDataset.get(position).dataDate);
-        holder.mDaysNumber.setText(mDataset.get(position).dataDaysNumber);
+        holder.mTitle.setText(mDataset.get(position).getmDataTitle());
+        holder.mLikesNumber.setText(String.valueOf(mDataset.get(position).getmDataLikesNumber()));
+        holder.mAddress.setText(mDataset.get(position).getmDataAddress());
+        holder.mDate.setText(mDataset.get(position).getmDataDate());
+        holder.mDaysNumber.setText(mDataset.get(position).getmDataDaysNumber());
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("data", mDataset.get(position).getArrayList());
+                bundle.putSerializable("data", mDataset.get(position));
                 Intent intent = new Intent(v.getContext(), SubActivity.class);
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);

@@ -19,14 +19,12 @@
             <TextView
                 android:id="@+id/title"
                 style="@style/MainTitleStyle"
-                android:tag="title_textview"
-                android:text="@string/main_title" />
+                android:tag="title_textview" />
 
             <TextView
                 android:id="@+id/state"
                 style="@style/MainStateStyle"
-                android:tag="state_textview"
-                android:text="@string/main_state" />
+                android:tag="state_textview" />
 
             <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/table_layout"
@@ -51,8 +49,7 @@
                     <TextView
                         android:id="@+id/text_view_1_2"
                         style="@style/StateTextViewStyle"
-                        android:tag="text_view_1_2"
-                        android:text="@string/state_1" />
+                        android:tag="text_view_1_2" />
                 </TableRow>
 
                 <View
@@ -73,8 +70,7 @@
                     <TextView
                         android:id="@+id/text_view_2_2"
                         style="@style/StateTextViewStyle"
-                        android:tag="text_view_2_2"
-                        android:text="@string/state_2" />
+                        android:tag="text_view_2_2"/>
                 </TableRow>
 
                 <View
@@ -95,8 +91,7 @@
                     <TextView
                         android:id="@+id/text_view_3_2"
                         style="@style/StateTextViewStyle"
-                        android:tag="text_view_3_2"
-                        android:text="@string/state_3" />
+                        android:tag="text_view_3_2" />
                 </TableRow>
 
                 <View
@@ -117,8 +112,7 @@
                     <TextView
                         android:id="@+id/text_view_4_2"
                         style="@style/StateTextViewStyle"
-                        android:tag="text_view_4_2"
-                        android:text="@string/state_4" />
+                        android:tag="text_view_4_2"/>
                 </TableRow>
 
                 <View
@@ -129,8 +123,7 @@
                 <TextView
                     android:id="@+id/text"
                     style="@style/TextStyle"
-                    android:tag="text_textview"
-                    android:text="@string/text" />
+                    android:tag="text_textview"/>
             </TableLayout>
 
             <android.support.v7.widget.RecyclerView
