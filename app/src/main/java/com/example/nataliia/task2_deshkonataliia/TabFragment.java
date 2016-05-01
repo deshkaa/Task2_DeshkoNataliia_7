@@ -13,22 +13,22 @@ import android.view.ViewGroup;
 
 public class TabFragment extends Fragment {
 
-    public static TabLayout tabLayout;
-    public static ViewPager viewPager;
-    public static int tab_items_int = 3;
+    public static TabLayout tabLayout; //[Comment] Why static? Wrong. Wrong name
+    public static ViewPager viewPager;  //[Comment] Why static? Wrong. Wrong name
+    public static int tab_items_int = 3;  //[Comment] Wrong. Wrong name
 
     private String[] mTabTitles;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View x = inflater.inflate(R.layout.tab_layout, null);
+        View x = inflater.inflate(R.layout.tab_layout, null); //[Comment] x? Bad name
         tabLayout = (TabLayout) x.findViewById(R.id.tabs);
         viewPager = (ViewPager) x.findViewById(R.id.viewpager);
         viewPager.setAdapter(new Adapter(getChildFragmentManager()));
 
         mTabTitles = getActivity().getResources().getStringArray(R.array.tab_titles_array);
-        tabLayout.post(new Runnable() {
+        tabLayout.post(new Runnable() { //[Comment] Why do you use runnable?
             @Override
             public void run() {
                 tabLayout.setupWithViewPager(viewPager);
@@ -37,7 +37,7 @@ public class TabFragment extends Fragment {
         return x;
     }
 
-    class Adapter extends FragmentPagerAdapter {
+    class Adapter extends FragmentPagerAdapter { //[Comment] Should be external
 
         public Adapter(FragmentManager fm) {
             super(fm);
@@ -53,11 +53,11 @@ public class TabFragment extends Fragment {
 
             switch (position) {
                 case 0:
-                    bundle_in_progress.putSerializable("tab", "in progress");
+                    bundle_in_progress.putSerializable("tab", "in progress"); //[Comment] Hardcode
                     inProgressTab.setArguments(bundle_in_progress);
                     return inProgressTab;
                 case 1:
-                    bundle_done.putSerializable("tab", "done");
+                    bundle_done.putSerializable("tab", "done"); //[Comment] Hardcode
                     doneTab.setArguments(bundle_done);
                     return doneTab;
                 case 2:

@@ -16,7 +16,7 @@ import java.util.List;
 public class ListViewAdapter extends BaseAdapter {
 
     private List<DataSet> mDataset;
-    Context context;
+    Context context;//[Comment[ WRONG VISIBILITY MODIFIER
     private static LayoutInflater inflater = null;
 
     public ListViewAdapter(Activity activity, List<DataSet> dataSet) {
@@ -33,7 +33,7 @@ public class ListViewAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
         return position;
-    }
+    } //[Comment] You can return DataSet
 
     @Override
     public long getItemId(int position) {
@@ -51,7 +51,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        Holder holder = new Holder();
+        Holder holder = new Holder(); //[Comment] Bad view holder implementation
         View rowView;
         rowView = inflater.inflate(R.layout.cardview_element, null);
 

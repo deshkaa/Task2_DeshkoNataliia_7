@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter
-        extends android.support.v7.widget.RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+        extends android.support.v7.widget.RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> { //[Comment] Please optimize import
     private Context mContext;
     private ArrayList<DataSet> mDataset;
 
@@ -69,10 +69,10 @@ public class RecyclerViewAdapter
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("data", mDataset.get(position));
+                bundle.putSerializable("data", mDataset.get(position)); //[Comment] Hardcode
                 Intent intent = new Intent(v.getContext(), SubActivity.class);
                 intent.putExtras(bundle);
-                mContext.startActivity(intent);
+                mContext.startActivity(intent); //[Comment] Don't start activity from adapter
             }
         });
     }
