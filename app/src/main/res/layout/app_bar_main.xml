@@ -37,8 +37,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add_white"
         android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
         app:floatingActionButtonColor="@color/colorAccent"
-        app:floatingActionButtonSize="mini"
         />
 
 </android.support.design.widget.CoordinatorLayout>

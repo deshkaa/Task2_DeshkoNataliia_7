@@ -24,12 +24,14 @@ public class InProgressFragment extends Fragment {
         Bundle bundle;
         if (this.getArguments() != null) {
             bundle = this.getArguments();
-            String key = (String) bundle.get("tab");
-            if (key.equals("in progress")) {
-                mAdapter = new RecyclerViewAdapter(DataSet.setDataInProgress(), this.getContext());
+            String key = (String) bundle.get(getActivity().getString(R.string.tab));
+            if (key.equals(getActivity().getString(R.string.in_progress))) {
+                mAdapter = new RecyclerViewAdapter(DataSet.setDataInProgress(getActivity()),
+                        this.getContext());
             }
-            if (key.equals("done")) {
-                mAdapter = new RecyclerViewAdapter(DataSet.setDataDone(), this.getContext());
+            if (key.equals(getActivity().getString(R.string.done))) {
+                mAdapter = new RecyclerViewAdapter(DataSet.setDataDone(getActivity()),
+                        this.getContext());
             }
         }
 

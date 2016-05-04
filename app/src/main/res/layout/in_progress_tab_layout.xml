@@ -10,6 +10,7 @@
         style="@style/RecyclerViewStyle"
         android:id="@+id/recycler_view"
         android:layout_marginTop="@dimen/recyclerview_margin_top"
+        android:layout_marginBottom="@dimen/recyclerview_margin_bottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </RelativeLayout>

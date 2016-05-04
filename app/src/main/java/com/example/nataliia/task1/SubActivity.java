@@ -1,8 +1,8 @@
 package com.example.nataliia.task1;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -25,7 +25,7 @@ public class SubActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
 
         DataSet dataSet =
-                (DataSet) bundle.getSerializable("data");
+                (DataSet) bundle.getSerializable(getString(R.string.data));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {

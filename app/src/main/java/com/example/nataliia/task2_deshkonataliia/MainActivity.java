@@ -1,21 +1,25 @@
 package com.example.nataliia.task2_deshkonataliia;
 
-import android.support.v4.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.example.nataliia.task1.SubActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -102,5 +106,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.container, new TabFragment()).commit();
         }
         return false;
+    }
+
+    public void cardViewOnClick(View view) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(this.getString(R.string.data), (DataSet) view.getTag());
+        Intent intent = new Intent(view.getContext(), SubActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

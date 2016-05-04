@@ -12,16 +12,12 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/cardview_margin"
         card_view:cardBackgroundColor="@color/cardview_background_color"
-        card_view:cardCornerRadius="@dimen/cardview_corner_radius">
+        card_view:cardCornerRadius="@dimen/cardview_corner_radius"
+        android:onClick="cardViewOnClick">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/cardview_element_height">
-
-            <!--TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/cardview_background_color"/-->
 
             <ImageView
                 android:id="@+id/imageview"
